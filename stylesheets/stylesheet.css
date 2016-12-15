@@ -346,10 +346,9 @@ Full-Width Styles
   margin-left: 10px;
 }
 
-.zip_download_link:hover {
-/*  background: url(../images/sprite_download.png) no-repeat top left;*/
+/*.zip_download_link:hover {
   background: url(../images/8800.png) no-repeat top left;
-}
+}*/
 
 .tar_download_link:hover {
   background: url(../images/sprite_download.png) no-repeat top right;
