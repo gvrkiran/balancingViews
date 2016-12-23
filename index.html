@@ -42,6 +42,7 @@ In this project, we try to connect people with content that challenges their vie
 We built algorithms to curate and recommend content <i>automatically</i> to users who were involved in a political discussion on Twitter.
 </p>
 
+<hr>
 <h3>
 <a id="creating-pages-manually" class="anchor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Why it matters</h3>
 
@@ -50,51 +51,66 @@ We built algorithms to curate and recommend content <i>automatically</i> to user
 <p>We currently live in a polarised society and social media is helping exacerbate these tensions. Our goal is to help users expand their view point, by suggesting what other content exists on the other side. This in turn encourages discussion and ...
 </p>
 
+<hr>
 <h3>
 <a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How does it work?</h3>
 
 We first identify users on that were active during the election result night (Nov 9, 2016). We try to classify these users into democrat or republican using our previous research. Then, for each user identified by a side, we try to combine five major factors to come up with a recommendation.
 
 <h4>How we identify the sides</h4>
-To identify if a user is a democrat or republican, we use 
+To identify if a user is a democrat or republican, we first compute the endorsement network. use a simple approach that intuitively works as follows.
+
 
 <h4>How we produce the recommendations</h4>
+<p> After identifying the side a user belongs to, we use five factors that for computing the recommendations for a user.</p>
+
 <p>
-1. Content shared by the high degree users on the other side — This is the equivalent to the edge with highest reduction in polarity score. In our case, to reduce the polarity score of a user, we just need to connect her to the high degree node on the other side. Number of high degree nodes: 20.
+1. Content shared by the authoritative high degree users on the other side. We first identify authoritative figures on each side e.g. On the democrat side, this could be @hillaryclinton, @berniesanders, huffpost, etc and on the republican side, this would be @realdonaltrump, @foxnews, etc.
 </p>
 
 <p>
-2. Content exclusively shared on one side, compared to the other. Shared by only one side: At least 10 users shared it and it is shared at least 3x more times on one side than the other.
+2. Acceptance probability - We compute the probability that a user with a certain polarity will endorse a certain url, called the acceptance probability. This is an important factor, because it gives the user a choice. It intuitively measures how 'extreme' the recommendations can be and captures how likely a user is, to like the recommendation. 
 </p>
 
 <p>
-3. Most retweeted urls with at least 10 retweets each, for each side.
+3. Content exclusively shared on one side, compared to the other. We look for urls shared exclusively on one side and almost none on the other side.
 </p>
 
 <p>
-4. Topic diversity - We construct a topic vector for a user and content by extracting entities from text (I used tagme.d4science.org). Then we compute cosine distance between user and articles and rank articles by decreasing order of distance.
+4. Most retweeted urls with at least 10 retweets each, for each side.
 </p>
 
 <p>
-5. Acceptance probability - We compute the acceptance probability between a pair of users, similar to the WSDM'17 paper. Then we compute the acceptance probability of a user and content as the average of acceptance probabilities of the user and all other users (upto 20) who shared this article. We rank articles by acceptance probability for this user.
+5. Topic diversity - For each user we try to maximise the information in the content they see. To capture the content already seen by the user, we construct a topic vector for a user by extracting named entities from text (we used <a href="http://tagme.d4science.org" target="_blank">TagMe</a> in this project). Then we compute cosine distance between user and articles and rank articles by decreasing order of distance for every user.
 </p>
+
+<hr>
 
 <h3>
 <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
 
-<p>The project is part of research on polarization on social media. We are researchers in social media and graph analysis.
+<p>The project is part of research on polarization on social media. We are researchers from the Data Mining group at Aalto university, working on social media graph analysis.
 Kiran Garimella, Michael Mathioudakis and Aristides Gionis (Aalto University, Helsinki, Finland).
-Gianmarco De Francisci Morales (Qatar Computing Research Institute, Doha, Qatar). 
+Gianmarco De Francisci Morales (Qatar Computing Research Institute, Doha, Qatar, formerly at Aalto). 
 For questions/comments, please contact Kiran Garimella (<a href="mailto:kiran.garimella@aalto.fi">kiran.garimella@aalto.fi</a>). 
+</p>
 
-<!--You can @mention a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p-->
+<hr>
 
 <h3>
 <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Data Policy</h3>
 
 <p>All data collected in this project will be used solely for aggregate analyis. No individual information is shared or disseminated. All data will be destroyed after the completion of the project.
-All recommendations are machine generated. No human involved. all machines.
-Open source project. Code available.
+All recommendations are machine generated. We do not hand curate links for any specific account.
+The project is Open source and our code is available on request.
+</p>
+
+<h3>
+<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>References</h3>
+<ol>
+<li>Garimella, Kiran, et al. "Quantifying controversy in social media." Proceedings of the Ninth ACM International Conference on Web Search and Data Mining. ACM, 2016.</li>
+<li>Garimella, Kiran, et al. "Balancing Opposing Views to Reduce Controversy." Proceedings of the Tenth ACM International Conference on Web Search and Data Mining. ACM, 2017.</li>
+</ol>
 </p>
      </section>
     </div>
