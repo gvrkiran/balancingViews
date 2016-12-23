@@ -80,14 +80,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	// $conn->query($sql);
 
-	if($question1 !== '' and $question2 !== '') {
-		if ($conn->query($sql) === TRUE) { // and $question1 !== '' and $question2 !== '') {
+	if($question1 !== "" and $question2 !== "") {
+		if ($conn->query($sql) === TRUE) {
 	  		echo "<h3 style='color:red'>Thank you for your time! Your responses have been recorded.</h3>";
 			$conn->close();
-//		header("Location: thankyou.php");
 		} else {
-	//	    echo "Error: " . $sql . "<br>" . $conn->error;
-	//		echo "ERROR. "
 		}
 	}
 }
@@ -111,13 +108,13 @@ function test_input($data) {
     </div>
 </section>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
- Do you find Recommendation1 helpful?:
+ Which one do you enjoy reading?:
   <input type="radio" name="question1" <?php if (isset($question1) && $question1=="yes") echo "checked";?> value="yes">Yes
   <input type="radio" name="question1" <?php if (isset($question1) && $question1=="no") echo "checked";?> value="no">No
   <span class="error">* <?php echo $question1Err;?></span>
 
   <br><br>
- Do you find Recommendation2 helpful?:
+ Which one would you disagree the most?:
   <input type="radio" name="question2" <?php if (isset($question2) && $question2=="yes") echo "checked";?> value="yes">Yes
   <input type="radio" name="question2" <?php if (isset($question2) && $question2=="no") echo "checked";?> value="no">No
   <span class="error">* <?php echo $question2Err;?></span>
