@@ -33,7 +33,8 @@
 
 		  <p>
 			  This survey is part of a <a href="https://gvrkiran.github.io/balancingViews">research project</a>
-			  that aims to understand how Twitter users consume news on social media. If you have any
+			  that aims to understand how Twitter users consume news on social media. You can
+			  find our data collection policy <a href='#data'>here</a>. If you have any
 			  questions or comments, please reach out to Kiran Garimella
 			  (<a href="mailto:kiran.garimella@aalto.fi">email</a>).</p>
 
@@ -143,7 +144,7 @@ function test_input($data) {
 <hr>
 
 <h3>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Data Collection Policy</h3>
+<a id="data" class="anchor" href="#data" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Data Collection Policy</h3>
 
 <p>
 	All data collected in this project will be used solely for aggregate analyis. No individual information is shared or disseminated.
