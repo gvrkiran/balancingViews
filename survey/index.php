@@ -123,17 +123,17 @@ function test_input($data) {
     </div>
 </section>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
-	Which one do you <b>enjoy reading</b> the most?:
+	Which one do you <b>enjoy reading</b> the most?:<br>
 	<input type="radio" name="question1" <?php if (isset($question1) && $question1=="1") echo "checked";?> value="1">Article 1
-	<input type="radio" name="question1" <?php if (isset($question1) && $question1=="2") echo "checked";?> value="2">Article 2 |
+	<input type="radio" name="question1" <?php if (isset($question1) && $question1=="2") echo "checked";?> value="2">Article 2
 	<input type="radio" name="question1" <?php if (isset($question1) && $question1=="eq") echo "checked";?> value="eq">Both the same
 	<input type="radio" name="question1" <?php if (isset($question1) && $question1=="na") echo "checked";?> value="na">Don't know
 	<span class="error">* <?php echo $question1Err;?></span>
 
   <br><br>
-	Which one do you <b>agree with</b> the most?:
+	Which one do you <b>agree with</b> the most?:<br>
 	<input type="radio" name="question1" <?php if (isset($question2) && $question2=="1") echo "checked";?> value="1">Article 1
-	<input type="radio" name="question1" <?php if (isset($question2) && $question2=="2") echo "checked";?> value="2">Article 2 |
+	<input type="radio" name="question1" <?php if (isset($question2) && $question2=="2") echo "checked";?> value="2">Article 2
 	<input type="radio" name="question1" <?php if (isset($question2) && $question2=="eq") echo "checked";?> value="eq">Both the same
 	<input type="radio" name="question1" <?php if (isset($question2) && $question2=="na") echo "checked";?> value="na">Don't know
 	<span class="error">* <?php echo $question2Err;?></span>
