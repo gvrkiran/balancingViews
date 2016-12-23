@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Balancing Opposing Views</title>
+    <title>News on Twitter</title>
   </head>
 
   <body>
@@ -17,8 +17,8 @@
     <div id="header_wrap" class="outer">
         <header class="inner">
 
-          <h1 id="project_title">Balancing Opposing Views</h1>
-          <h2 id="project_tagline">Connecting people on Twitter with content which challenges their viewpoint.</h2>
+          <h1 id="project_title">News on Twitter</h1>
+          <h2 id="project_tagline">Understanding news consumption on social media</h2>
 
         </header>
     </div>
@@ -28,11 +28,25 @@
       <section id="main_content" class="inner">
 <!--h3>
 <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Survey</h3-->
-<h2>Survey</h2>
 
-<p>Thank you for visiting the survey page. You can learn more about the project <a href="#about">here</a>.</p>
-<p>Below are two recommended links, based on your twitter activity. Please click on the two links and answer the questions that follow.
-</p>
+	      <h3>Thanks for being here!</h3>
+
+		  <p>
+			  This survey is part of a <a href="https://gvrkiran.github.io/balancingViews">research project</a>
+			  that aims to understand how Twitter users consume news on social media. If you have any
+			  questions or comments, please reach out to Kiran Garimella
+			  (<a href="mailto:kiran.garimella@aalto.fi">email</a>).</p>
+
+	      <h3>What to do</h3>
+
+	      <p>Below we show two links to news articles. Please click on them and read the articles.</p>
+		  <p>We then ask you to answer <b>two questions</b>.</p>
+		  <p>One question asks you to tell us which
+			  article you enjoyed reading the most -- based on whether you found them informative,
+			  well-written, or useful.</p>
+		  <p>Another question asks you which article you agreed with the most -- based on any opinions
+			  reflected in the article.</p>
+		  
 <hr>
 
 <?php
@@ -129,27 +143,13 @@ function test_input($data) {
 <hr>
 
 <h3>
-<a name="about" id="connecting-people-with-opposing-views" class="anchor" href="#connecting-people-with-opposing-views" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>About the project</h3>
-
-<p>
-In this project, we try to connect people with opposing views on Twitter. 
-The way we do this is to suggest content we automatically identify as being of the 'opposite' side.
-Our main aim is to achieve an open world where everyone is willing to listen and communicate ideas with the other side.
-</p>
-
-<p>
-For more details, about the project, visit the project <a href="https://gvrkiran.github.io/balancingViews">website</a>. If you have any questions/comments, please reach out to Kiran Garimella (<a href="mailto:kiran.garimella@aalto.fi">email</a>).
-</p>
-
-<hr>
-
-<h3>
 <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Data Collection Policy</h3>
 
 <p>
-All data collected in this project will be used solely for aggregate analyis. No individual information is shared or disseminated. All data will be destroyed after the completion of the project.
-All recommendations are machine generated. We do not hand curate links for any specific account.
-The project is Open source and our code is available on request.
+	All data collected in this project will be used solely for aggregate analyis. No individual information is shared or disseminated.
+	All data will be destroyed after the completion of the project.
+	All recommendations are machine generated. We do not curate links manually for any specific account.
+	The project is Open source and our code is available upon request.
 </p>
      </section>
     </div>
