@@ -2,7 +2,7 @@
 <html>
 
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="description" content="Balancing Opposing Views : Project to connect people on Twitter with content which is opposite to what they believe.">
 
@@ -16,15 +16,10 @@
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
-          <!--a id="forkme_banner" href="https://github.com/gvrkiran/balancingViews">View on GitHub</a-->
 
           <h1 id="project_title">Balancing Opposing Views</h1>
           <h2 id="project_tagline">Connecting people on Twitter with content which challenges their viewpoint.</h2>
 
-            <!--section id="downloads">
-	      <a href="https://twitter.com/balancingviews0" target="_blank"><img src="images/8800.png" height=50 width=50 alt='View on Twitter' title='View on Twitter'></a>
-              <a class="tar_download_link" href="https://github.com/gvrkiran/balancingViews/tarball/master">Download this project as a tar.gz file</a>
-            </section-->
         </header>
     </div>
 
@@ -36,13 +31,15 @@
 <h2>Survey</h2>
 
 <p>Thank you for visiting the survey page. You can learn more about the project <a href="#about">here</a>.</p>
-<p>Please have a look at the two links presented below and answer the questions that follow.
+<p>Below are two recommended links, based on your twitter activity. Please click on the two links and answer the questions that follow.
 </p>
+<hr>
 
 <?php
 // define variables and set to empty values
 $nameErr = $emailErr = $question1Err = $question2Err = $websiteErr = "";
 $question1 = $question2 = $gender = $comment = $website = "";
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -76,18 +73,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	    die("Connection failed: " . $conn->connect_error);
 	} 
 
-	$sql = "INSERT INTO surveydata (question1, question2, comments) VALUES ('$question1', '$question2', '$comment')";
+	$timestamp = time();
+	$filename = __FILE__;
+
+	$sql = "INSERT INTO surveydata (filename, question1, question2, comments, timestamp) VALUES ('$filename','$question1', '$question2', '$comment', '$timestamp')";
 
 	// $conn->query($sql);
 
-	if ($conn->query($sql) === TRUE) {
-		echo "New record created successfully";
-		$conn->close();
-		header('Location: thankyou.php');
-	} else {
-	    echo "Error: " . $sql . "<br>" . $conn->error;
+	if($question1 !== '' and $question2 !== '') {
+		if ($conn->query($sql) === TRUE) { // and $question1 !== '' and $question2 !== '') {
+	  		echo "<h3 style='color:red'>Thank you for your time! Your responses have been recorded.</h3>";
+			$conn->close();
+//		header("Location: thankyou.php");
+		} else {
+	//	    echo "Error: " . $sql . "<br>" . $conn->error;
+	//		echo "ERROR. "
+		}
 	}
-
 }
 
 function test_input($data) {
@@ -110,14 +112,14 @@ function test_input($data) {
 </section>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
  Do you find Recommendation1 helpful?:
-  <input type="radio" name="question1" <?php if (isset($gender) && $gender=="yes") echo "checked";?> value="yes">Yes
-  <input type="radio" name="question1" <?php if (isset($gender) && $gender=="no") echo "checked";?> value="no">No
+  <input type="radio" name="question1" <?php if (isset($question1) && $question1=="yes") echo "checked";?> value="yes">Yes
+  <input type="radio" name="question1" <?php if (isset($question1) && $question1=="no") echo "checked";?> value="no">No
   <span class="error">* <?php echo $question1Err;?></span>
 
   <br><br>
  Do you find Recommendation2 helpful?:
-  <input type="radio" name="question2" <?php if (isset($gender) && $gender=="yes") echo "checked";?> value="yes">Yes
-  <input type="radio" name="question2" <?php if (isset($gender) && $gender=="no") echo "checked";?> value="no">No
+  <input type="radio" name="question2" <?php if (isset($question2) && $question2=="yes") echo "checked";?> value="yes">Yes
+  <input type="radio" name="question2" <?php if (isset($question2) && $question2=="no") echo "checked";?> value="no">No
   <span class="error">* <?php echo $question2Err;?></span>
 
   <br><br>
