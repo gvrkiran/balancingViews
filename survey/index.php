@@ -114,28 +114,33 @@ function test_input($data) {
 
 <section id="urls">
     <div id="one">
-    	<h5>Recommendation1</h5>
+    	<h5>News Article 1</h5>
     	<p><a href="http://www.igberetvnews.com/264682">BREAKING!!! Onitsha Agog as Pro Trump Celebration Breaks Out (Happening now) ?~@~S IgbereTV News</a></p>
     </div>
     <div id="two">
-    	<h5>Recommendation2</h5>
+    	<h5>News Article 2</h5>
     	<p><a href="http://www.igberetvnews.com/264682">BREAKING!!! Onitsha Agog as Pro Trump Celebration Breaks Out (Happening now) ?~@~S IgbereTV News</a></p>
     </div>
 </section>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
- Which one do you enjoy reading?:
-  <input type="radio" name="question1" <?php if (isset($question1) && $question1=="yes") echo "checked";?> value="yes">Yes
-  <input type="radio" name="question1" <?php if (isset($question1) && $question1=="no") echo "checked";?> value="no">No
-  <span class="error">* <?php echo $question1Err;?></span>
+	Which one do you <b>enjoy reading</b> the most?:
+	<input type="radio" name="question1" <?php if (isset($question1) && $question1=="1") echo "checked";?> value="1">Article 1
+	<input type="radio" name="question1" <?php if (isset($question1) && $question1=="2") echo "checked";?> value="2">Article 2 |
+	<input type="radio" name="question1" <?php if (isset($question1) && $question1=="eq") echo "checked";?> value="eq">Both the same
+	<input type="radio" name="question1" <?php if (isset($question1) && $question1=="na") echo "checked";?> value="na">Don't know
+	<span class="error">* <?php echo $question1Err;?></span>
 
   <br><br>
- Which one would you disagree the most?:
-  <input type="radio" name="question2" <?php if (isset($question2) && $question2=="yes") echo "checked";?> value="yes">Yes
-  <input type="radio" name="question2" <?php if (isset($question2) && $question2=="no") echo "checked";?> value="no">No
-  <span class="error">* <?php echo $question2Err;?></span>
+	Which one do you <b>agree with</b> the most?:
+	<input type="radio" name="question1" <?php if (isset($question2) && $question2=="1") echo "checked";?> value="1">Article 1
+	<input type="radio" name="question1" <?php if (isset($question2) && $question2=="2") echo "checked";?> value="2">Article 2 |
+	<input type="radio" name="question1" <?php if (isset($question2) && $question2=="eq") echo "checked";?> value="eq">Both the same
+	<input type="radio" name="question1" <?php if (isset($question2) && $question2=="na") echo "checked";?> value="na">Don't know
+	<span class="error">* <?php echo $question2Err;?></span>
 
   <br><br>
-  Comment: <textarea name="comment" rows="5" cols="40"><?php echo $comment;?></textarea>
+  Any comments or feedback?<br>
+	<textarea name="comment" rows="5" cols="60"><?php echo $comment;?></textarea>
   <br><br>
   <input type="submit" name="submit" value="Submit">  
 </form>
